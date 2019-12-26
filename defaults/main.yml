@@ -1,0 +1,22 @@
+---
+geoipupdate_version: 4.1.5
+
+geoipupdate_config_file: /usr/local/etc/GeoIP.conf
+
+geoipupdate_account_id: "0"
+geoipupdate_license_key: "000000000000"
+
+geoipupdate_edition_ids:
+  - GeoLite2-Country
+  - GeoLite2-City
+
+geoipupdate_database_directory: /usr/local/share/GeoIP
+
+geoipupdate_host: updates.maxmind.com
+
+# geoipupdate_proxy: 127.0.0.1:8888
+# geoipupdate_proxy_user_password: username:password
+
+geoipupdate_preserve_file_times: 0
+
+geoipupdate_lock_file: "{{ geoipupdate_database_directory }}/.geoipupdate.lock"

@@ -1,0 +1,43 @@
+# Please see https://dev.maxmind.com/geoip/geoipupdate/ for instructions
+# on setting up geoipupdate, including information on how to download a
+# pre-filled GeoIP.conf file.
+
+# Replace YOUR_ACCOUNT_ID_HERE and YOUR_LICENSE_KEY_HERE with an active account
+# ID and license key combination associated with your MaxMind account. These
+# are available from https://www.maxmind.com/en/my_license_key.
+AccountID {{ geoipupdate_account_id }}
+LicenseKey {{ geoipupdate_license_key }}
+
+# Enter the edition IDs of the databases you would like to update.
+# Multiple edition IDs are separated by spaces.
+EditionIDs {{ geoipupdate_edition_ids | join(' ') }}
+
+# The remaining settings are OPTIONAL.
+
+# The directory to store the database files. Defaults to DATADIR
+DatabaseDirectory {{ geoipupdate_database_directory }}
+
+# The server to use. Defaults to "updates.maxmind.com".
+Host {{ geoipupdate_host }}
+
+# The proxy host name or IP address. You may optionally specify a
+# port number, e.g., 127.0.0.1:8888. If no port number is specified, 1080
+# will be used.
+{% if geoipupdate_proxy is defined %}
+Proxy {{ geoipupdate_proxy }}
+{% endif %}
+
+# The user name and password to use with your proxy server.
+{% if geoipupdate_proxy_user_password is defined %}
+ProxyUserPassword {{ geoipupdate_proxy_user_password }}
+{% endif %}
+
+# Whether to preserve modification times of files downloaded from the server.
+# Defaults to "0".
+PreserveFileTimes {{ geoipupdate_preserve_file_times }}
+
+# The lock file to use. This ensures only one geoipupdate process can run at a
+# time.
+# Note: Once created, this lockfile is not removed from the filesystem.
+# Defaults to ".geoipupdate.lock" under the DatabaseDirectory.
+LockFile {{ geoipupdate_lock_file }}

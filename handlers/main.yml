@@ -1,0 +1,3 @@
+---
+- name: run geoipupdate
+  command: geoipupdate -f {{ geoipupdate_config_file }}

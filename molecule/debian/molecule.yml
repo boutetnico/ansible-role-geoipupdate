@@ -1,0 +1,9 @@
+---
+scenario:
+  name: debian
+
+platforms:
+  - name: ansible-role-geoipupdate-debian-9
+    image: debian:9
+  - name: ansible-role-geoipupdate-debian-10
+    image: debian:10

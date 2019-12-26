@@ -1,0 +1,22 @@
+---
+- name: Install geoipupdate
+  apt:
+    deb: "https://github.com/maxmind/geoipupdate/releases/download/v{{ geoipupdate_version }}/geoipupdate_{{ geoipupdate_version }}_linux_amd64.deb"
+    state: present
+
+- name: Ensure database directory exists
+  file:
+    group: root
+    mode: 0755
+    name: "{{ geoipupdate_database_directory }}"
+    owner: root
+    state: directory
+
+- name: Install geoipupdate config file
+  template:
+    dest: "{{ geoipupdate_config_file }}"
+    group: root
+    mode: 0640
+    owner: root
+    src: GeoIP.conf.j2
+  notify: run geoipupdate
