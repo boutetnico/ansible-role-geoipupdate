@@ -23,6 +23,7 @@ Role Variables
 
 | Variable                        | Required | Default                             | Choices   | Comments                            |
 |---------------------------------|----------|-------------------------------------|-----------|-------------------------------------|
+| geoipupdate_dependencies        | yes      | `[cron]`                            | list      |                                     |
 | geoipupdate_version             | yes      | `4.1.5`                             | string    |                                     |
 | geoipupdate_config_file         | yes      | `/usr/local/etc/GeoIP.conf`         | string    |                                     |
 | geoipupdate_account_id          | yes      | `0`                                 | string    |                                     |
@@ -34,6 +35,14 @@ Role Variables
 | geoipupdate_proxy_user_password | no       |                                     | string    |                                     |
 | geoipupdate_preserve_file_times | yes      | `0`                                 | int       |                                     |
 | geoipupdate_lock_file           | yes      | `DATADIR/.geoipupdate.lock`         | string    |                                     |
+| geoipupdate_cron_state          | yes      | `present`                           | string    |                                     |
+| geoipupdate_cron_user           | yes      | `root`                              | string    |                                     |
+| geoipupdate_cron_special_time   | yes      | `weekly`                            | string    |                                     |
+| geoipupdate_cron_day            | no       |                                     | int       |                                     |
+| geoipupdate_cron_hour           | no       |                                     | int       |                                     |
+| geoipupdate_cron_minute         | no       |                                     | int       |                                     |
+| geoipupdate_cron_month          | no       |                                     | int       |                                     |
+| geoipupdate_cron_weekday        | no       |                                     | int       |                                     |
 
 Dependencies
 ------------

@@ -20,3 +20,15 @@ geoipupdate_host: updates.maxmind.com
 geoipupdate_preserve_file_times: 0
 
 geoipupdate_lock_file: "{{ geoipupdate_database_directory }}/.geoipupdate.lock"
+
+geoipupdate_dependencies:
+  - cron
+
+geoipupdate_cron_state: present
+geoipupdate_cron_user: root
+geoipupdate_cron_special_time: weekly
+# geoipupdate_cron_day: "*"
+# geoipupdate_cron_hour: "*"
+# geoipupdate_cron_minute: "*"
+# geoipupdate_cron_month: "*"
+# geoipupdate_cron_weekday: "*"

@@ -9,6 +9,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 @pytest.mark.parametrize('name', [
+  ('cron'),
   ('geoipupdate'),
 ])
 def test_packages_are_installed(host, name):
@@ -37,3 +38,15 @@ def test_geoip_database_files_exist(host, username, groupname, path):
     assert file.is_file
     assert file.user == username
     assert file.group == groupname
+
+
+@pytest.mark.parametrize('file,job', [
+  ('geoipupdate', '@weekly root geoipupdate -f /usr/local/etc/GeoIP.conf'),
+])
+def test_cron_files_exist(host, file, job):
+    cron_file = host.file('/etc/cron.d/' + file)
+    assert cron_file.exists
+    assert cron_file.is_file
+    assert cron_file.user == 'root'
+    assert cron_file.group == 'root'
+    assert cron_file.contains(job)
