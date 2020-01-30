@@ -1,7 +1,4 @@
 ---
-- debug:
-    var: geoipupdate_account_id
-
 - name: Ensure dependencies are installed
   apt:
     name: "{{ geoipupdate_dependencies }}"
