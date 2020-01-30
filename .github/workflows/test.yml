@@ -4,7 +4,7 @@ name: Test ansible role
 on: [push]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
