@@ -29,3 +29,6 @@ jobs:
 
       - name: Run Molecule
         run: molecule --base-config molecule/shared/base.yml test --scenario-name ${{ matrix.scenario }}
+        env:
+          MAXMIND_ACCOUNT: ${{ secrets.MAXMIND_ACCOUNT }}
+          MAXMIND_KEY: ${{ secrets.MAXMIND_KEY }}

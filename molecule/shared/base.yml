@@ -14,6 +14,8 @@ provisioner:
     converge: ../shared/playbook.yml
   lint:
     name: ansible-lint
+  ansible_args:
+    - -e geoipupdate_account_id:${MAXMIND_ACCOUNT}
 
 verifier:
   name: testinfra

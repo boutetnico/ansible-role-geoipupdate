@@ -3,8 +3,6 @@ ansible-role-geoipupdate
 
 This role installs and configures Maxmind Geoipupdate.
 
-[![Build Status](https://travis-ci.org/boutetnico/ansible-role-geoipupdate.svg?branch=master)](https://travis-ci.org/boutetnico/ansible-role-geoipupdate)
-
 Requirements
 ------------
 
@@ -55,6 +53,8 @@ Example Playbook
     - hosts: all
       roles:
         - ansible-role-geoipupdate
+          geoipupdate_account_id: 123
+          geoipupdate_license_key: "ABCDEF"
 
 Testing
 -------
