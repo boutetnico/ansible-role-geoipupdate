@@ -8,11 +8,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        scenario: [debian, ubuntu]
-
     steps:
 
       - uses: actions/checkout@v2
@@ -28,7 +23,7 @@ jobs:
           pip install -q ansible molecule docker
 
       - name: Run Molecule
-        run: molecule --base-config molecule/shared/base.yml test --scenario-name ${{ matrix.scenario }}
+        run: molecule test
         env:
           MAXMIND_ACCOUNT: ${{ secrets.MAXMIND_ACCOUNT }}
           MAXMIND_KEY: ${{ secrets.MAXMIND_KEY }}

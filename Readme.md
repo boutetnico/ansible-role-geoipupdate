@@ -59,13 +59,8 @@ Example Playbook
 Testing
 -------
 
-## Debian
+`molecule test`
 
-`molecule --base-config molecule/shared/base.yml test --scenario-name debian`
-
-## Ubuntu
-
-`molecule --base-config molecule/shared/base.yml test --scenario-name ubuntu`
 
 License
 -------
