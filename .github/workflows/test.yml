@@ -25,5 +25,5 @@ jobs:
       - name: Run Molecule
         run: molecule test
         env:
-          MAXMIND_ACCOUNT: ${{ secrets.MAXMIND_ACCOUNT }}
+          MAXMIND_USER: ${{ secrets.MAXMIND_USER }}
           MAXMIND_KEY: ${{ secrets.MAXMIND_KEY }}
