@@ -22,7 +22,7 @@ Role Variables
 | Variable                        | Required | Default                             | Choices   | Comments                            |
 |---------------------------------|----------|-------------------------------------|-----------|-------------------------------------|
 | geoipupdate_dependencies        | yes      | `[cron]`                            | list      |                                     |
-| geoipupdate_version             | yes      | `4.1.5`                             | string    |                                     |
+| geoipupdate_version             | yes      | `4.2.0`                             | string    |                                     |
 | geoipupdate_config_file         | yes      | `/usr/local/etc/GeoIP.conf`         | string    |                                     |
 | geoipupdate_account_id          | yes      | `0`                                 | string    |                                     |
 | geoipupdate_license_key         | yes      | `000000000000`                      | string    |                                     |
