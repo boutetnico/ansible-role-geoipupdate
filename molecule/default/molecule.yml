@@ -15,18 +15,16 @@ platforms:
   - name: ansible-role-geoipupdate-ubuntu-1804
     image: ubuntu:18.04
 
-lint:
-  name: yamllint
+lint: |
+    yamllint .
+    ansible-lint
+    flake8
 
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
   ansible_args:
     - -e geoipupdate_account_id=${MAXMIND_USER}
     - -e geoipupdate_license_key=${MAXMIND_KEY}
 
 verifier:
   name: testinfra
-  lint:
-    name: flake8
