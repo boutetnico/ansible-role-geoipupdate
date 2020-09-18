@@ -3,6 +3,7 @@
   apt:
     name: "{{ geoipupdate_dependencies }}"
     state: present
+    update_cache: true
 
 - name: Install geoipupdate
   apt:
