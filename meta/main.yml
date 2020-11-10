@@ -1,9 +1,10 @@
 ---
 galaxy_info:
+  role_name: geoipupdate
   author: Nicolas Boutet
-  description: Install Maxmind Geoipupdate
+  description: Install Maxmind Geoipupdate.
   license: MIT
-  min_ansible_version: 2.6
+  min_ansible_version: 2.7
   platforms:
     - name: Ubuntu
       versions:
@@ -11,10 +12,10 @@ galaxy_info:
         - focal
     - name: Debian
       versions:
-        - stretch
         - buster
+        - stretch
   galaxy_tags:
-    - maxmind
     - geoip
     - geoipupdate
+    - maxmind
 dependencies: []
