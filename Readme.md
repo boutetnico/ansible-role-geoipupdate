@@ -27,6 +27,8 @@ Role Variables
 |---------------------------------|----------|-------------------------------------|-----------|-----------------------------|
 | geoipupdate_dependencies        | yes      | `[cron]`                            | list      |                             |
 | geoipupdate_version             | yes      | `4.7.1`                             | string    |                             |
+| geoipupdate_arch                | yes      | detected automatically              | string    |                             |
+| geoipupdate_path                | yes      | `/usr/local/bin/geoipupdate`        | string    |                             |
 | geoipupdate_config_file         | yes      | `/usr/local/etc/GeoIP.conf`         | string    |                             |
 | geoipupdate_account_id          | yes      | `0`                                 | string    |                             |
 | geoipupdate_license_key         | yes      | `000000000000`                      | string    |                             |

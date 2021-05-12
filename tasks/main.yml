@@ -5,10 +5,34 @@
     state: present
     update_cache: true
 
-- name: Install geoipupdate
-  apt:
-    deb: "https://github.com/maxmind/geoipupdate/releases/download/v{{ geoipupdate_version }}/geoipupdate_{{ geoipupdate_version }}_linux_amd64.deb"
-    state: present
+- name: Download geoipupdate tarball
+  get_url:
+    dest: /tmp
+    mode: 0640
+    url: https://github.com/maxmind/geoipupdate/releases/download/v{{ geoipupdate_version }}/geoipupdate_{{ geoipupdate_version }}_linux_{{ geoipupdate_arch }}.tar.gz
+
+- name: Unarchive geoipupdate tarball
+  unarchive:
+    copy: false
+    dest: /tmp
+    mode: 0750
+    src: /tmp/geoipupdate_{{ geoipupdate_version }}_linux_{{ geoipupdate_arch }}.tar.gz
+
+- name: Copy geoipupdate binary to its install path
+  copy:
+    dest: "{{ geoipupdate_path }}"
+    group: root
+    mode: 0755
+    owner: root
+    src: /tmp/geoipupdate_{{ geoipupdate_version }}_linux_{{ geoipupdate_arch }}/geoipupdate
+
+- name: Delete temporary archive and folder
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - /tmp/geoipupdate_{{ geoipupdate_version }}_linux_{{ geoipupdate_arch }}
+    - /tmp/geoipupdate_{{ geoipupdate_version }}_linux_{{ geoipupdate_arch }}.tar.gz
 
 - name: Ensure database directory exists
   file:
