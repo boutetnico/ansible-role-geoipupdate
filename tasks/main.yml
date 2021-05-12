@@ -24,6 +24,7 @@
     group: root
     mode: 0755
     owner: root
+    remote_src: true
     src: /tmp/geoipupdate_{{ geoipupdate_version }}_linux_{{ geoipupdate_arch }}/geoipupdate
 
 - name: Delete temporary archive and folder
