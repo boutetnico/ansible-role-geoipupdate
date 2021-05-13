@@ -5,7 +5,7 @@
   register: _geoipupdate
 
 - name: Get geoipupdate installed version
-  command: "{{ _geoipupdate }} --version"
+  command: "{{ geoipupdate_path }} --version"
   changed_when: false
   when: _geoipupdate.stat.exists
   register: _geoipupdate_version
