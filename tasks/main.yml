@@ -11,6 +11,6 @@
   register: _geoipupdate_version
 
 - include_tasks: setup.yml
-  when: _geoipupdate_version is skipped or geoipupdate_version not in _geoipupdate_version.stdout
+  when: _geoipupdate_version is skipped or geoipupdate_version not in _geoipupdate_version.stderr
 
 - include_tasks: configure.yml
