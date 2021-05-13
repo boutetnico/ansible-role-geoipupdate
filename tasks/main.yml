@@ -1,42 +1,16 @@
 ---
-- name: Ensure dependencies are installed
-  apt:
-    name: "{{ geoipupdate_dependencies }}"
-    state: present
-    update_cache: true
+- name: Check if geoipupdate is already installed
+  stat:
+    path: "{{ geoipupdate_path }}"
+  register: _geoipupdate
 
-- name: Install geoipupdate
-  apt:
-    deb: "https://github.com/maxmind/geoipupdate/releases/download/v{{ geoipupdate_version }}/geoipupdate_{{ geoipupdate_version }}_linux_amd64.deb"
-    state: present
+- name: Get geoipupdate installed version
+  command: "{{ geoipupdate_path }} --version"
+  changed_when: false
+  when: _geoipupdate.stat.exists
+  register: _geoipupdate_version
 
-- name: Ensure database directory exists
-  file:
-    group: root
-    mode: 0755
-    name: "{{ geoipupdate_database_directory }}"
-    owner: root
-    state: directory
+- include_tasks: setup.yml
+  when: _geoipupdate_version is skipped or geoipupdate_version not in _geoipupdate_version.stderr
 
-- name: Install geoipupdate config file
-  template:
-    dest: "{{ geoipupdate_config_file }}"
-    group: root
-    mode: 0640
-    owner: root
-    src: GeoIP.conf.j2
-  notify: run geoipupdate
-
-- name: Install geoipupdate cron job
-  cron:
-    cron_file: geoipupdate
-    day: "{{ geoipupdate_cron_day | d(omit) }}"
-    hour: "{{ geoipupdate_cron_hour | d(omit) }}"
-    job: "geoipupdate -f {{ geoipupdate_config_file }}"
-    minute: "{{ geoipupdate_cron_minute | d(omit) }}"
-    month: "{{ geoipupdate_cron_month | d(omit) }}"
-    name: "Update GeoIP databases"
-    special_time: "{{ geoipupdate_cron_special_time | d(omit) }}"
-    state: "{{ geoipupdate_cron_state }}"
-    user: "{{ geoipupdate_cron_user }}"
-    weekday: "{{ geoipupdate_cron_weekday | d(omit) }}"
+- include_tasks: configure.yml

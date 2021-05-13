@@ -1,6 +1,10 @@
 ---
 geoipupdate_version: 4.7.1
 
+geoipupdate_arch: "{{ geoipupdate_arch_map[ansible_architecture] }}"
+
+geoipupdate_path: /usr/local/bin/geoipupdate
+
 geoipupdate_config_file: /usr/local/etc/GeoIP.conf
 
 geoipupdate_account_id: "0"

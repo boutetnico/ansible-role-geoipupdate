@@ -10,7 +10,6 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 @pytest.mark.parametrize('name', [
   ('cron'),
-  ('geoipupdate'),
 ])
 def test_packages_are_installed(host, name):
     package = host.package(name)
@@ -18,9 +17,10 @@ def test_packages_are_installed(host, name):
 
 
 @pytest.mark.parametrize('username,groupname,path', [
+  ('root', 'root', '/usr/local/bin/geoipupdate'),
   ('root', 'root', '/usr/local/etc/GeoIP.conf'),
 ])
-def test_geoipupdate_config_file(host, username, groupname, path):
+def test_geoipupdate_files(host, username, groupname, path):
     config = host.file(path)
     assert config.exists
     assert config.is_file
