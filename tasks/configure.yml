@@ -21,7 +21,7 @@
     cron_file: geoipupdate
     day: "{{ geoipupdate_cron_day | d(omit) }}"
     hour: "{{ geoipupdate_cron_hour | d(omit) }}"
-    job: "geoipupdate -f {{ geoipupdate_config_file }}"
+    job: "{{ geoipupdate_path }} -f {{ geoipupdate_config_file }}"
     minute: "{{ geoipupdate_cron_minute | d(omit) }}"
     month: "{{ geoipupdate_cron_month | d(omit) }}"
     name: "Update GeoIP databases"

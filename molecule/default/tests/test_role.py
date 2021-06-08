@@ -41,7 +41,10 @@ def test_geoip_database_files_exist(host, username, groupname, path):
 
 
 @pytest.mark.parametrize('file,job', [
-  ('geoipupdate', '@weekly root geoipupdate -f /usr/local/etc/GeoIP.conf'),
+  (
+    'geoipupdate',
+    '@weekly root /usr/local/bin/geoipupdate -f /usr/local/etc/GeoIP.conf'
+  ),
 ])
 def test_cron_files_exist(host, file, job):
     cron_file = host.file('/etc/cron.d/' + file)
