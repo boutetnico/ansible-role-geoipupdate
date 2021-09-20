@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   role_name: geoipupdate
+  namespace: boutetnico
   author: Nicolas Boutet
   description: Install Maxmind Geoipupdate.
   license: MIT
