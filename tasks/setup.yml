@@ -1,25 +1,25 @@
 ---
 - name: Ensure dependencies are installed
-  apt:
+  ansible.builtin.apt:
     name: "{{ geoipupdate_dependencies }}"
     state: present
     update_cache: true
 
 - name: Download geoipupdate tarball
-  get_url:
+  ansible.builtin.get_url:
     dest: /tmp
     mode: 0640
     url: https://github.com/maxmind/geoipupdate/releases/download/v{{ geoipupdate_version }}/geoipupdate_{{ geoipupdate_version }}_linux_{{ geoipupdate_arch }}.tar.gz
 
 - name: Unarchive geoipupdate tarball
-  unarchive:
+  ansible.builtin.unarchive:
     copy: false
     dest: /tmp
     mode: 0750
     src: /tmp/geoipupdate_{{ geoipupdate_version }}_linux_{{ geoipupdate_arch }}.tar.gz
 
 - name: Copy geoipupdate binary to its install path
-  copy:
+  ansible.builtin.copy:
     dest: "{{ geoipupdate_path }}"
     group: root
     mode: 0755
@@ -28,7 +28,7 @@
     src: /tmp/geoipupdate_{{ geoipupdate_version }}_linux_{{ geoipupdate_arch }}/geoipupdate
 
 - name: Delete temporary archive and folder
-  file:
+  ansible.builtin.file:
     path: "{{ item }}"
     state: absent
   loop:

@@ -1,11 +1,11 @@
 ---
 - name: Check if geoipupdate is already installed
-  stat:
+  ansible.builtin.stat:
     path: "{{ geoipupdate_path }}"
   register: _geoipupdate
 
 - name: Get geoipupdate installed version
-  command: "{{ geoipupdate_path }} --version"
+  ansible.builtin.command: "{{ geoipupdate_path }} --version"
   changed_when: false
   when: _geoipupdate.stat.exists
   register: _geoipupdate_version
