@@ -10,7 +10,9 @@
   when: _geoipupdate.stat.exists
   register: _geoipupdate_version
 
-- include_tasks: setup.yml
+- name: Include setup tasks
+  ansible.builtin.include_tasks: setup.yml
   when: _geoipupdate_version is skipped or geoipupdate_version not in _geoipupdate_version.stderr
 
-- include_tasks: configure.yml
+- name: Include configuration tasks
+  ansible.builtin.include_tasks: configure.yml
