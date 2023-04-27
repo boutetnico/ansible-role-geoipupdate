@@ -1,3 +1,4 @@
 ---
 - name: Run geoipupdate
   ansible.builtin.command: geoipupdate -f {{ geoipupdate_config_file }}
+  changed_when: false

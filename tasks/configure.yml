@@ -2,7 +2,7 @@
 - name: Ensure database directory exists
   ansible.builtin.file:
     group: root
-    mode: 0755
+    mode: "0755"
     name: "{{ geoipupdate_database_directory }}"
     owner: root
     state: directory
@@ -11,7 +11,7 @@
   ansible.builtin.template:
     dest: "{{ geoipupdate_config_file }}"
     group: root
-    mode: 0640
+    mode: "0640"
     owner: root
     src: GeoIP.conf.j2
   notify: Run geoipupdate
