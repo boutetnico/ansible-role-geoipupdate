@@ -9,8 +9,8 @@
   ansible.builtin.get_url:
     dest: /tmp
     mode: "0640"
-    url: https://github.com/maxmind/geoipupdate/releases/download/v{{ geoipupdate_version }}\
-         /geoipupdate_{{ geoipupdate_version }}_linux_{{ geoipupdate_arch }}.tar.gz
+    url: "https://github.com/maxmind/geoipupdate/releases/download/v{{ geoipupdate_version }}\
+         /geoipupdate_{{ geoipupdate_version }}_linux_{{ geoipupdate_arch }}.tar.gz"
 
 - name: Unarchive geoipupdate tarball
   ansible.builtin.unarchive:
