@@ -26,7 +26,7 @@ Role Variables
 | Variable                        | Required | Default                             | Choices   | Comments                    |
 |---------------------------------|----------|-------------------------------------|-----------|-----------------------------|
 | geoipupdate_dependencies        | yes      | `[cron]`                            | list      |                             |
-| geoipupdate_version             | yes      | `6.0.0`                             | string    |                             |
+| geoipupdate_version             | yes      | `6.1.0`                             | string    |                             |
 | geoipupdate_arch                | yes      | detected automatically              | string    |                             |
 | geoipupdate_path                | yes      | `/usr/local/bin/geoipupdate`        | string    |                             |
 | geoipupdate_config_file         | yes      | `/usr/local/etc/GeoIP.conf`         | string    |                             |

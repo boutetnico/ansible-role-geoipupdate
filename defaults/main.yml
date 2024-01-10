@@ -1,5 +1,5 @@
 ---
-geoipupdate_version: 6.0.0
+geoipupdate_version: 6.1.0
 
 geoipupdate_arch: "{{ geoipupdate_arch_map[ansible_architecture] }}"
 
