@@ -26,7 +26,7 @@ Role Variables
 | Variable                        | Required | Default                             | Choices   | Comments                    |
 |---------------------------------|----------|-------------------------------------|-----------|-----------------------------|
 | geoipupdate_dependencies        | yes      | `[cron]`                            | list      |                             |
-| geoipupdate_version             | yes      | `7.0.1`                             | string    |                             |
+| geoipupdate_version             | yes      | `7.1.0`                             | string    |                             |
 | geoipupdate_arch                | yes      | detected automatically              | string    |                             |
 | geoipupdate_path                | yes      | `/usr/local/bin/geoipupdate`        | string    |                             |
 | geoipupdate_config_file         | yes      | `/usr/local/etc/GeoIP.conf`         | string    |                             |
@@ -34,7 +34,7 @@ Role Variables
 | geoipupdate_license_key         | yes      | `000000000000`                      | string    |                             |
 | geoipupdate_edition_ids         | yes      | `[GeoLite2-Country, GeoLite2-City]` | list      | Databases to install.       |
 | geoipupdate_database_directory  | yes      | `/usr/local/share/GeoIP`            | string    |                             |
-| geoipupdate_host                | yes      | `updates.maxmind.com`               | string    |                             |
+| geoipupdate_host                | yes      | `https://updates.maxmind.com`       | string    |                             |
 | geoipupdate_proxy               | no       |                                     | string    |                             |
 | geoipupdate_proxy_user_password | no       |                                     | string    |                             |
 | geoipupdate_preserve_file_times | yes      | `0`                                 | int       |                             |

@@ -1,5 +1,5 @@
 ---
-geoipupdate_version: 7.0.1
+geoipupdate_version: 7.1.0
 
 geoipupdate_arch: "{{ geoipupdate_arch_map[ansible_architecture] }}"
 
@@ -16,7 +16,7 @@ geoipupdate_edition_ids:
 
 geoipupdate_database_directory: /usr/local/share/GeoIP
 
-geoipupdate_host: updates.maxmind.com
+geoipupdate_host: https://updates.maxmind.com
 
 # geoipupdate_proxy: 127.0.0.1:8888
 # geoipupdate_proxy_user_password: username:password
