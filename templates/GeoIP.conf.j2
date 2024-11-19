@@ -41,3 +41,14 @@ PreserveFileTimes {{ geoipupdate_preserve_file_times }}
 # Note: Once created, this lockfile is not removed from the filesystem.
 # Defaults to ".geoipupdate.lock" under the DatabaseDirectory.
 LockFile {{ geoipupdate_lock_file }}
+
+# The amount of time to retry for when errors during HTTP transactions are
+# encountered. It can be specified as a (possibly fractional) decimal number
+# followed by a unit suffix. Valid time units are "ns", "us" (or "µs"), "ms",
+# "s", "m", "h".
+# Defaults to "5m" (5 minutes).
+RetryFor {{ geoipupdate_retry_for }}
+
+# The number of parallel database downloads.
+# Defaults to "1".
+Parallelism {{ geoipupdate_parallelism }}

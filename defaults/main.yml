@@ -25,6 +25,10 @@ geoipupdate_preserve_file_times: 0
 
 geoipupdate_lock_file: "{{ geoipupdate_database_directory }}/.geoipupdate.lock"
 
+geoipupdate_retry_for: "5m"
+
+geoipupdate_parallelism: 1
+
 geoipupdate_dependencies:
   - cron
 

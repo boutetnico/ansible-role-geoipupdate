@@ -39,6 +39,8 @@ Role Variables
 | geoipupdate_proxy_user_password | no       |                                     | string    |                             |
 | geoipupdate_preserve_file_times | yes      | `0`                                 | int       |                             |
 | geoipupdate_lock_file           | yes      | `DATADIR/.geoipupdate.lock`         | string    |                             |
+| geoipupdate_retry_for           | yes      | `5m`                                | string    |                             |
+| geoipupdate_parallelism         | yes      | `1`                                 | int       |                             |
 | geoipupdate_cron_state          | yes      | `present`                           | string    |                             |
 | geoipupdate_cron_user           | yes      | `root`                              | string    |                             |
 | geoipupdate_cron_special_time   | yes      | `weekly`                            | string    |                             |
