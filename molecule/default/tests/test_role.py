@@ -21,7 +21,7 @@ def test_geoipupdate_command_is_available(host):
     "path,user,group,mode",
     [
         ("/usr/local/bin/geoipupdate", "root", "root", 0o755),
-        ("/usr/local/etc/GeoIP.conf", "root", "root", 0o644),
+        ("/usr/local/etc/GeoIP.conf", "root", "root", 0o640),
     ],
 )
 def test_geoipupdate_files_exist(host, path, user, group, mode):
