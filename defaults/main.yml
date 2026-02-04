@@ -1,7 +1,7 @@
 ---
 geoipupdate_version: 7.1.1
 
-geoipupdate_arch: "{{ geoipupdate_arch_map[ansible_architecture] }}"
+geoipupdate_arch: "{{ geoipupdate_arch_map[ansible_facts['architecture']] }}"
 
 geoipupdate_path: /usr/local/bin/geoipupdate
 
